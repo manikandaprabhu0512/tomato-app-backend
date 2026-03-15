@@ -245,10 +245,6 @@ export const fetchMyCurrentOrder = TryCatch(
     }
 
     try {
-      console.log(
-        "Calling restaurant:",
-        `${process.env.RESTAURANT_SERVICE}/api/order/current/rider`,
-      );
       const { data } = await axios.get(
         `${process.env.RESTAURANT_SERVICE}/api/order/current/rider?riderId=${rider._id}`,
         {
@@ -262,9 +258,6 @@ export const fetchMyCurrentOrder = TryCatch(
         order: data,
       });
     } catch (error: any) {
-      console.log("Error details:", error.message);
-      console.log("Error response:", error.response?.data);
-      console.log("Error status:", error.response?.status);
       res.status(500).json({
         message: error.response.data.message,
       });

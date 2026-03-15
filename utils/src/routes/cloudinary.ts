@@ -3,6 +3,10 @@ import cloudinary from "cloudinary";
 
 const router = express.Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "cloudinary" });
+});
+
 router.post("/upload", async (req, res) => {
   try {
     const { buffer } = req.body;

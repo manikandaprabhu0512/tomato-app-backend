@@ -9,6 +9,10 @@ import {
 
 const router = express.Router();
 
+router.get("/admin/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "admin" });
+});
+
 router.get("/admin/restaurant/pending", isAuth, isAdmin, getPendingRestaurant);
 router.get("/admin/rider/pending", isAuth, isAdmin, getPendingRiders);
 router.patch("/verify/rider/:id", isAuth, isAdmin, verifyRider);

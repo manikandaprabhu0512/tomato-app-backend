@@ -12,6 +12,10 @@ import uploadFile from "../middlewares/multer.js";
 
 const router = express.Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "restaraunt" });
+});
+
 router.post("/new", isAuth, isSeller, uploadFile, addRestraunt);
 router.get("/my", isAuth, isSeller, fetchMyRestaurant);
 router.put("/status", isAuth, isSeller, updateStatusRestaurant);

@@ -12,6 +12,10 @@ import uploadFile from "../middlewares/multer.js";
 
 const router = express.Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "rider" });
+});
+
 router.post("/new", isAuth, uploadFile, addRiderProfile);
 
 router.get("/myprofile", isAuth, fetchMyProfile);

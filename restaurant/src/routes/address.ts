@@ -8,6 +8,10 @@ import {
 
 const router = express.Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "address" });
+});
+
 router.post("/new", isAuth, addAddress);
 router.delete("/:id", isAuth, deleteAddress);
 router.get("/all", isAuth, getMyAddresses);

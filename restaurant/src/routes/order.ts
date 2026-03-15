@@ -14,6 +14,10 @@ import {
 
 const router = express.Router();
 
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", service: "order" });
+});
+
 router.get("/myorder", isAuth, getMyOrders);
 router.get("/:id", isAuth, fetchSingleOrder);
 router.post("/new", isAuth, createOrder);
@@ -22,7 +26,7 @@ router.get(
   "/restaurant/:restaurantId",
   isAuth,
   isSeller,
-  fetchRestaurantOrders
+  fetchRestaurantOrders,
 );
 router.put("/:orderId", isAuth, isSeller, updateOrderStatus);
 router.put("/assign/rider", assignRiderToOrder);

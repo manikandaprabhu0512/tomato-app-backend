@@ -8,14 +8,13 @@ dotenv.config();
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173", // dev
-];
-
 app.use(
   cors({
-    origin: "http://localhost:5173", // your React/Vite port
-    credentials: true, // important for cookies/sessions
+    origin: [
+      "http://localhost:5173",
+      "https://tomato-app-frontend.vercel.app/",
+    ],
+    credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   }),

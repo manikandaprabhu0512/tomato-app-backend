@@ -6,7 +6,19 @@ import cors from "cors";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://tomato-app-frontend.vercel.app/",
+    ],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
+
 app.use("/api/v1", adminRoutes);
 
 app.listen(process.env.PORT, () => {

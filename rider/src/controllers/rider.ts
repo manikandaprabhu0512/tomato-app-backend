@@ -40,7 +40,7 @@ export const addRiderProfile = TryCatch(
       `${process.env.UTILS_SERVICE}/api/upload`,
       {
         buffer: fileBuffer.content,
-      }
+      },
     );
 
     const {
@@ -91,7 +91,7 @@ export const addRiderProfile = TryCatch(
       message: "Rider profile created successfully",
       riderProfile,
     });
-  }
+  },
 );
 
 export const fetchMyProfile = TryCatch(
@@ -107,7 +107,7 @@ export const fetchMyProfile = TryCatch(
     const account = await Rider.findOne({ userId: user._id });
 
     res.json(account);
-  }
+  },
 );
 
 export const toggleRiderAvailablity = TryCatch(
@@ -170,7 +170,7 @@ export const toggleRiderAvailablity = TryCatch(
       message: isAvailble ? "Rider is now online" : "Rider is now offline",
       rider,
     });
-  }
+  },
 );
 
 export const acceptOrder = TryCatch(async (req: AuthenticatedRequest, res) => {
@@ -203,7 +203,7 @@ export const acceptOrder = TryCatch(async (req: AuthenticatedRequest, res) => {
         headers: {
           "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
         },
-      }
+      },
     );
 
     if (data.success) {
@@ -213,7 +213,7 @@ export const acceptOrder = TryCatch(async (req: AuthenticatedRequest, res) => {
           isAvailble: true,
         },
         { isAvailble: false },
-        { new: true }
+        { new: true },
       );
 
       res.json({ message: "Order accepted" });
@@ -245,24 +245,31 @@ export const fetchMyCurrentOrder = TryCatch(
     }
 
     try {
+      console.log(
+        "Calling restaurant:",
+        `${process.env.RESTAURANT_SERVICE}/api/order/current/rider`,
+      );
       const { data } = await axios.get(
         `${process.env.RESTAURANT_SERVICE}/api/order/current/rider?riderId=${rider._id}`,
         {
           headers: {
             "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
           },
-        }
+        },
       );
 
       res.json({
         order: data,
       });
     } catch (error: any) {
+      console.log("Error details:", error.message);
+      console.log("Error response:", error.response?.data);
+      console.log("Error status:", error.response?.status);
       res.status(500).json({
         message: error.response.data.message,
       });
     }
-  }
+  },
 );
 
 export const updateOrderStatus = TryCatch(
@@ -293,7 +300,7 @@ export const updateOrderStatus = TryCatch(
           headers: {
             "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
           },
-        }
+        },
       );
 
       res.json({
@@ -305,5 +312,5 @@ export const updateOrderStatus = TryCatch(
         message: error.response.data.message,
       });
     }
-  }
+  },
 );

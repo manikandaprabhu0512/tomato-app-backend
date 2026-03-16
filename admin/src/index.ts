@@ -9,7 +9,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://tomato-app-frontend.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://tomatoapp.store",
+      "https://www.tomatoapp.store",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],

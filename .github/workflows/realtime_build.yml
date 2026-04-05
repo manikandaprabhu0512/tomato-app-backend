@@ -29,7 +29,7 @@ jobs:
       - name: Build and push to Docker Hub
         uses: docker/build-push-action@v5
         with:
-          context: ./admin
+          context: ./realtime
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/tomato-realtime-service:latest
 

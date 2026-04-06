@@ -8,12 +8,12 @@ export const createRazorpayOrder = async (req: Request, res: Response) => {
   const { orderId } = req.body;
 
   const { data } = await axios.get(
-    `${process.env.RESTAURANT_SERVICE}/api/order/payment/${orderId}`,
+    `${process.env.RESTAURANT_SERVICE}/api/restaurant/order/payment/${orderId}`,
     {
       headers: {
         "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
       },
-    }
+    },
   );
 
   const razorpayOrder = await razorpay.orders.create({
@@ -39,7 +39,7 @@ export const verifyRazorpayPayment = async (req: Request, res: Response) => {
   const isValid = verifyRazorpaySignature(
     razorpay_order_id,
     razorpay_payment_id,
-    razorpay_signature
+    razorpay_signature,
   );
 
   if (!isValid) {
@@ -72,12 +72,12 @@ export const payWithStripe = async (req: Request, res: Response) => {
     const { orderId } = req.body;
 
     const { data } = await axios.get(
-      `${process.env.RESTAURANT_SERVICE}/api/order/payment/${orderId}`,
+      `${process.env.RESTAURANT_SERVICE}/api/restaurant/order/payment/${orderId}`,
       {
         headers: {
           "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
         },
-      }
+      },
     );
 
     const session = await stripe.checkout.sessions.create({

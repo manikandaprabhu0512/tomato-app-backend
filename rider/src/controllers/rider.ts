@@ -37,7 +37,7 @@ export const addRiderProfile = TryCatch(
     }
 
     const { data: uploadResult } = await axios.post(
-      `${process.env.UTILS_SERVICE}/api/upload`,
+      `${process.env.UTILS_SERVICE}/api/utils/upload`,
       {
         buffer: fileBuffer.content,
       },

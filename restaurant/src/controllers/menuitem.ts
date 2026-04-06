@@ -45,10 +45,10 @@ export const addMenuItem = TryCatch(async (req: AuthenticatedRequest, res) => {
   }
 
   const { data: uploadResult } = await axios.post(
-    `${process.env.UTILS_SERVICE}/api/upload`,
+    `${process.env.UTILS_SERVICE}/api/utils/upload`,
     {
       buffer: fileBuffer.content,
-    }
+    },
   );
 
   const item = await MenuItems.create({
@@ -115,7 +115,7 @@ export const deleteMenuItem = TryCatch(
     res.json({
       message: "Menu item deleted successfully",
     });
-  }
+  },
 );
 
 export const toggleMenuItemAvailability = TryCatch(
@@ -161,5 +161,5 @@ export const toggleMenuItemAvailability = TryCatch(
       }`,
       item,
     });
-  }
+  },
 );

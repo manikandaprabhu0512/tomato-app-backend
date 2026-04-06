@@ -40,8 +40,8 @@ cloudinary.v2.config({
   api_secret: CLOUD_SECRET_KEY,
 });
 
-app.use("/api", uploadRoutes);
-app.use("/api/payment", paymentRoutes);
+app.use("/api/utils", uploadRoutes);
+app.use("/api/utils/payment", paymentRoutes);
 
 const PORT = process.env.PORT || 5002;
 

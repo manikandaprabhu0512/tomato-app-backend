@@ -9,7 +9,7 @@ import {
 
 const router = express.Router();
 
-router.get("/admin/health", (req, res) => {
+router.get("/health", (req, res) => {
   res.status(200).json({ status: "ok", service: "admin" });
 });
 

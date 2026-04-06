@@ -1,0 +1,162 @@
+[
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Margherita Pizza",
+    "description": "Classic tomato sauce, fresh mozzarella, and basil on a hand-tossed crust",
+    "price": 12.99,
+    "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "BBQ Chicken Burger",
+    "description": "Grilled chicken breast with smoky BBQ sauce, cheddar, and coleslaw",
+    "price": 10.49,
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Caesar Salad",
+    "description": "Romaine lettuce, parmesan, croutons, and house Caesar dressing",
+    "price": 8.99,
+    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Spaghetti Carbonara",
+    "description": "Al dente spaghetti with pancetta, egg yolk, pecorino romano, and black pepper",
+    "price": 14.99,
+    "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Chicken Tikka Masala",
+    "description": "Tender chicken in a rich, creamy tomato-spiced sauce served with naan",
+    "price": 15.49,
+    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Beef Tacos (3 pcs)",
+    "description": "Seasoned ground beef, salsa, guacamole, and sour cream in corn tortillas",
+    "price": 9.99,
+    "image": "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Grilled Salmon",
+    "description": "Atlantic salmon fillet with lemon butter, asparagus, and herbed rice",
+    "price": 18.99,
+    "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Mushroom Risotto",
+    "description": "Creamy arborio rice with wild mushrooms, parmesan, and truffle oil",
+    "price": 13.49,
+    "image": "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Beef Steak (200g)",
+    "description": "Pan-seared sirloin with garlic mashed potatoes, green beans, and red wine jus",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Veggie Wrap",
+    "description": "Grilled veggies, hummus, spinach, and feta in a whole wheat tortilla",
+    "price": 8.49,
+    "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Chicken Wings (6 pcs)",
+    "description": "Crispy wings tossed in buffalo sauce with blue cheese dipping sauce",
+    "price": 11.99,
+    "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Tom Yum Soup",
+    "description": "Spicy Thai broth with shrimp, mushrooms, lemongrass, and lime leaves",
+    "price": 9.49,
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=500",
+    "isAvailable": false
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Cheese Quesadilla",
+    "description": "Flour tortilla filled with melted cheddar, jalapeños, served with salsa",
+    "price": 7.99,
+    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Pad Thai",
+    "description": "Stir-fried rice noodles with shrimp, egg, bean sprouts, and peanuts",
+    "price": 13.99,
+    "image": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "French Onion Soup",
+    "description": "Slow-cooked caramelized onion broth topped with gruyère crouton",
+    "price": 7.49,
+    "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Chocolate Lava Cake",
+    "description": "Warm dark chocolate cake with a molten centre, served with vanilla ice cream",
+    "price": 6.99,
+    "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Mango Lassi",
+    "description": "Chilled blended yogurt drink with ripe Alphonso mango and a pinch of cardamom",
+    "price": 3.99,
+    "image": "https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Garlic Bread",
+    "description": "Toasted sourdough with herb butter, roasted garlic, and melted mozzarella",
+    "price": 4.99,
+    "image": "https://images.unsplash.com/photo-1619535860434-cf9b902a0223?w=500",
+    "isAvailable": true
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Eggs Benedict",
+    "description": "Poached eggs on toasted English muffin with Canadian bacon and hollandaise",
+    "price": 11.49,
+    "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=500",
+    "isAvailable": false
+  },
+  {
+    "restaurantId": "69b6c1af250754cf2b283f58",
+    "name": "Tiramisu",
+    "description": "Classic Italian dessert with espresso-soaked ladyfingers and mascarpone cream",
+    "price": 6.49,
+    "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+    "isAvailable": true
+  }
+]

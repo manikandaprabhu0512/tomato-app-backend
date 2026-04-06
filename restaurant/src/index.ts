@@ -35,10 +35,10 @@ app.use(express.json());
 const PORT = process.env.PORT || 5001;
 
 app.use("/api/restaurant", restaurantRoutes);
-app.use("/api/item", itemRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/address", addressRoutes);
-app.use("/api/order", orderRoutes);
+app.use("/api/restaurant/item", itemRoutes);
+app.use("/api/restaurant/cart", cartRoutes);
+app.use("/api/restaurant/address", addressRoutes);
+app.use("/api/restaurant/order", orderRoutes);
 
 app.listen(PORT, () => {
   console.log(`Restaurant service is running on port ${PORT}`);

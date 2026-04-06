@@ -46,6 +46,16 @@ app.use(
 );
 
 app.use(
+  "/socket.io",
+  createProxyMiddleware({
+    target: process.env.REALTIME_SOCKET_SERVICE_URL,
+    changeOrigin: true,
+    ws: true,
+    secure: false,
+  }),
+);
+
+app.use(
   "/api/restaurant",
   createProxyMiddleware({
     target: process.env.RESTAURANT_SERVICE_URL,

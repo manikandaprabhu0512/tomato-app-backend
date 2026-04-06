@@ -20,7 +20,7 @@ app.use(
   }),
 );
 
-app.use("/api/v1", adminRoutes);
+app.use("/api/v1/admin", adminRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Admin Service is running on port ${process.env.PORT}`);

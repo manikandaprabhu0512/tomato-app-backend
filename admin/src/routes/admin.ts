@@ -13,8 +13,8 @@ router.get("/admin/health", (req, res) => {
   res.status(200).json({ status: "ok", service: "admin" });
 });
 
-router.get("/admin/restaurant/pending", isAuth, isAdmin, getPendingRestaurant);
-router.get("/admin/rider/pending", isAuth, isAdmin, getPendingRiders);
+router.get("/restaurant/pending", isAuth, isAdmin, getPendingRestaurant);
+router.get("/rider/pending", isAuth, isAdmin, getPendingRiders);
 router.patch("/verify/rider/:id", isAuth, isAdmin, verifyRider);
 router.patch("/verify/restaurant/:id", isAuth, isAdmin, verifyRestaurant);
 

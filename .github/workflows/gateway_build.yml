@@ -31,4 +31,4 @@ jobs:
         with:
           context: ./gateway
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/tomato-admin-service:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/tomato-gateway-service:latest

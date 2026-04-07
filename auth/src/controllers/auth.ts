@@ -5,6 +5,7 @@ import { AuthenticatedRequest } from "../middlewares/isAuth.js";
 import { oauth2client } from "../config/googleConfig.js";
 import axios from "axios";
 import crypto from "crypto";
+import { publishEvent } from "../config/otp.publisher.js";
 
 const allowedRoles = ["customer", "rider", "seller"] as const;
 type Role = (typeof allowedRoles)[number];
@@ -183,6 +184,13 @@ export const loginWithPhoneNumber = TryCatch(async (req, res) => {
       message: "User not found with this phone number",
     });
   }
+
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+  await publishEvent("OTP_QUEUE", {
+    otp: otp,
+    to: normalizedPhone,
+  });
 
   const safeUser = sanitizeUser(user);
   const token = signUserToken(safeUser);

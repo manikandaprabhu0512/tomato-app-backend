@@ -6,6 +6,7 @@ import { oauth2client } from "../config/googleConfig.js";
 import axios from "axios";
 import crypto from "crypto";
 import { publishEvent } from "../config/otp.publisher.js";
+import redis from "../config/redis.js";
 
 const allowedRoles = ["customer", "rider", "seller"] as const;
 type Role = (typeof allowedRoles)[number];
@@ -192,11 +193,67 @@ export const loginWithPhoneNumber = TryCatch(async (req, res) => {
     to: normalizedPhone,
   });
 
+  const hashedOTP = await hashPassword(otp);
+
+  await redis.set(`otp:${normalizedPhone}`, hashedOTP, "EX", 300);
+
+  return res.status(200).send("OTP sent successfully");
+});
+
+export const verifyOtp = TryCatch(async (req, res) => {
+  const { phonenumber, otp } = req.body;
+
+  if (!phonenumber || !otp) {
+    return res.status(400).json({
+      message: "Phone number and OTP are required",
+    });
+  }
+
+  const normalizedPhone = normalizePhone(String(phonenumber));
+
+  if (!PHONE_REGEX.test(normalizedPhone)) {
+    return res.status(400).json({
+      message: "Please enter a valid phone number",
+    });
+  }
+
+  if (String(otp).length !== 6) {
+    return res.status(400).json({
+      message: "OTP must be 6 digits",
+    });
+  }
+
+  const user = await User.findOne({ phonenumber: normalizedPhone });
+
+  if (!user) {
+    return res.status(404).json({
+      message: "User not found with this phone number",
+    });
+  }
+
+  const storedOtp = await redis.get(`otp:${normalizedPhone}`);
+
+  if (!storedOtp) {
+    return res.status(400).json({
+      message: "OTP expired or not found",
+    });
+  }
+
+  const isOtpValid = await comparePassword(String(otp), storedOtp);
+
+  if (!isOtpValid) {
+    return res.status(401).json({
+      message: "Invalid OTP",
+    });
+  }
+
+  await redis.del(`otp:${normalizedPhone}`);
+
   const safeUser = sanitizeUser(user);
   const token = signUserToken(safeUser);
 
   return res.status(200).json({
-    message: "Logged in successfully",
+    message: "OTP verified successfully",
     token,
     user: safeUser,
   });

@@ -6,6 +6,7 @@ import {
   loginWithPhoneNumber,
   myProfile,
   signupUser,
+  verifyOtp,
 } from "../controllers/auth.js";
 import { isAuth } from "../middlewares/isAuth.js";
 
@@ -18,6 +19,7 @@ router.get("/health", (req, res) => {
 router.post("/login", loginUser);
 router.post("/login/email", loginWithEmailPassword);
 router.post("/login/phone", loginWithPhoneNumber);
+router.post("/phone/verify-otp", verifyOtp);
 router.post("/signup", signupUser);
 router.put("/add/role", isAuth, addUserRole);
 router.get("/me", isAuth, myProfile);

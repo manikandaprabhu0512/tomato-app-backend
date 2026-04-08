@@ -197,7 +197,9 @@ export const loginWithPhoneNumber = TryCatch(async (req, res) => {
 
   await redis.set(`otp:${normalizedPhone}`, hashedOTP, "EX", 300);
 
-  return res.status(200).send("OTP sent successfully");
+  return res.status(200).json({
+    message: "OTP Sent Successfully",
+  });
 });
 
 export const verifyOtp = TryCatch(async (req, res) => {

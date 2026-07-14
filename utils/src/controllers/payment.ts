@@ -21,16 +21,24 @@ export const createRazorpayOrder = async (req: Request, res: Response) => {
 
   console.log("Data :", data);
 
-  const razorpayOrder = await razorpay.orders.create({
-    amount: data.amount * 100,
-    currency: "INR",
-    receipt: orderId,
-  });
+  let razorpayOrder;
+  try {
+    razorpayOrder = await razorpay.orders.create({
+      amount: data.amount * 100,
+      currency: "INR",
+      receipt: orderId,
+    });
+  } catch (error: any) {
+    console.error(error.message);
+    res.status(500).json({
+      message: error.message,
+    });
+  }
 
   console.log("Razorpay Order: ", razorpayOrder);
 
   res.json({
-    razorpayOrderId: razorpayOrder.id,
+    razorpayOrderId: razorpayOrder?.id,
     key: process.env.RAZORPAY_KEY_ID,
   });
 };

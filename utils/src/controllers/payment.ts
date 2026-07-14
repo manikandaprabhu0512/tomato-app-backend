@@ -24,7 +24,7 @@ export const createRazorpayOrder = async (req: Request, res: Response) => {
   let razorpayOrder;
   try {
     razorpayOrder = await razorpay.orders.create({
-      amount: data.amount * 100,
+      amount: Math.round(data.amount * 100),
       currency: "INR",
       receipt: orderId,
     });

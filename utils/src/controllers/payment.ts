@@ -5,7 +5,10 @@ import { verifyRazorpaySignature } from "../config/verifyRazorpay.js";
 import { publishPaymentSuccess } from "../config/payment.producer.js";
 
 export const createRazorpayOrder = async (req: Request, res: Response) => {
+  console.log("Processing RazorPay....");
+
   const { orderId } = req.body;
+  console.log("OrderID: ", orderId);
 
   const { data } = await axios.get(
     `${process.env.RESTAURANT_SERVICE}/api/restaurant/order/payment/${orderId}`,
@@ -16,11 +19,15 @@ export const createRazorpayOrder = async (req: Request, res: Response) => {
     },
   );
 
+  console.log("Data :", data);
+
   const razorpayOrder = await razorpay.orders.create({
     amount: data.amount * 100,
     currency: "INR",
     receipt: orderId,
   });
+
+  console.log("Razorpay Order: ", razorpayOrder);
 
   res.json({
     razorpayOrderId: razorpayOrder.id,

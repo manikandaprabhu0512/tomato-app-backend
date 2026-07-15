@@ -9,6 +9,8 @@ export const startPaymentConsumer = async () => {
     if (!msg) return;
 
     try {
+      console.log("Recieved Message....");
+
       const event = JSON.parse(msg.content.toString());
 
       if (event.type !== "PAYMENT_SUCCESS") {
@@ -17,6 +19,7 @@ export const startPaymentConsumer = async () => {
       }
 
       const { orderId } = event.data;
+      console.log("Order Id: ", orderId);
 
       const order = await Order.findOneAndUpdate(
         {
@@ -32,7 +35,7 @@ export const startPaymentConsumer = async () => {
             expiresAt: 1,
           },
         },
-        { new: true }
+        { new: true },
       );
 
       if (!order) {
@@ -43,6 +46,8 @@ export const startPaymentConsumer = async () => {
       console.log("✅Order Placed:", order._id);
 
       //   socket work
+
+      console.log("Processing Socket for new order...");
 
       await axios.post(
         `${process.env.REALTIME_SERVICE}/api/v1/internal/emit`,
@@ -57,8 +62,11 @@ export const startPaymentConsumer = async () => {
           headers: {
             "x-internal-key": process.env.INTERNAL_SERVICE_KEY,
           },
-        }
+        },
       );
+
+      console.log("Processed Socket....");
+
       channel.ack(msg);
     } catch (error) {
       console.error("❌ Payment cosumer error:", error);
